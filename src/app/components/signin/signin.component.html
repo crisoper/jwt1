@@ -1,0 +1,26 @@
+<div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-10 col-md-6">
+        
+        <div class="auth-wrapper">
+            <form class="form-signin" [formGroup]="signinForm" (ngSubmit)="loginUser()">
+                <h3 class="h3 mb-3 font-weight-normal text-center">Por favor inicie sesion</h3>
+                <p>
+                    <small>Usuario y password: admin@admin.com</small>
+                </p>
+                <div class="form-group">
+                    <label>Correo</label>
+                    <input type="email" class="form-control" formControlName="email" placeholder="correo" required autofocus="autofocus" value="admin@admin.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" formControlName="password" placeholder="Password" value="admin@admin.com">
+                </div>
+                <button type="submit" class="btn btn-block btn-primary">Iniciar sesion</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+
