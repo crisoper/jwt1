@@ -3,8 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
-
-// import { AuthService } from '../shared/auth.service';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-barra-lateral',
@@ -13,7 +12,7 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class BarraLateralComponent {
 
-	private authService:any;
+	// private authService:any;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -22,7 +21,7 @@ export class BarraLateralComponent {
     );
 
   constructor(
-  	// public authService: AuthService,
+  	public authService: AuthService,
   	private breakpointObserver: BreakpointObserver
   	 ) 
   {}

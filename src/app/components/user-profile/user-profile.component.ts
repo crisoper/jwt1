@@ -4,6 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthService } from './../../shared/auth.service';
 
 
+export interface User {
+  name: string,
+  email: string
+}
+
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -11,22 +16,25 @@ import { AuthService } from './../../shared/auth.service';
 })
 export class UserProfileComponent implements OnInit {
 
-	currentUser: Object = {};
+	currentUser: User = {
+    name : null,
+    email: null
+  };
 
   constructor(
   	public authService: AuthService,
     private actRoute: ActivatedRoute
     ) { 
   	
-  	let id = this.actRoute.snapshot.paramMap.get('id');
+      
+    }
     
-    this.authService.getUserProfile(id).subscribe(res => {
-      this.currentUser = res.user;
-    })
-
-  }
-
-  ngOnInit() {
+    ngOnInit() {
+      let id = this.actRoute.snapshot.paramMap.get('id');
+      
+      this.authService.getUserProfile(id).subscribe( (res) => {
+        this.currentUser = res.user;
+      })
   }
 
 }
